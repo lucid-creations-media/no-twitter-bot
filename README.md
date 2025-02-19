@@ -52,6 +52,8 @@ Follow these steps to set up and run your bot using this template:
 3. **Remove references of LCM from your code.**
 
 Remove references of LCM fromm the following files:
+
+```
 project-root/
 ├── src
 │ ├── bot # Code related to bot
@@ -60,6 +62,7 @@ project-root/
 │ │ │ └──isLCMGroup.ts
 │ └── └── index.ts # Bot entry point
 └── README.md
+```
 
 3. **Launching the Bot**
 
