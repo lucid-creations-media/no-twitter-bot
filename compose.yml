@@ -1,5 +1,5 @@
 services:
   bot:
     env_file: stack.env
-    build: https://github.com/LucidCreationsMedia/No-Twitter-Bot.git
+    build:
       context: .
