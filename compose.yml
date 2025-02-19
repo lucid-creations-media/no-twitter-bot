@@ -1,6 +1,6 @@
 services:
   bot:
-    container_name: No-Twitter-Bot
+    container_name: no-twitter-bot
     env_file: stack.env
     build:
       context: .
