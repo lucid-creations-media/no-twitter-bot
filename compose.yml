@@ -1,4 +1,5 @@
 services:
   bot:
+    env_file: stack.env
     build:
       context: .
