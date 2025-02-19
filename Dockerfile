@@ -9,13 +9,13 @@ FROM base AS builder
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm ci
+RUN yarn install
 
 # Bundle app source
 COPY . .
 
 # Type check app
-RUN npm run typecheck
+RUN yarn typecheck
 
 FROM base AS runner
 
@@ -23,7 +23,7 @@ FROM base AS runner
 COPY package*.json ./
 
 # Install only production app dependencies
-RUN npm ci --omit=dev
+RUN yarn install --production
 
 # Bundle app source
 COPY . .
