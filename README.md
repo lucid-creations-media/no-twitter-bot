@@ -1,10 +1,8 @@
-<h1 align="center">🤖 Telegram Bot Template</h1>
-
-<img align="right" width="35%" src="https://github.com/bot-base/telegram-bot-template/assets/26162440/c4371683-3e99-4b1c-ae8e-11ccbea78f4b">
+# 🤖 No Twitter Bot for [Lucid Creations Media The Cove](https://community.lucidcreations.media)
 
 Bot starter template based on [grammY](https://grammy.dev/) bot framework.
 
-## Features
+## Features of a grammY bot
 
 - Scalable structure
 - Config loading and validation
@@ -23,13 +21,19 @@ Bot starter template based on [grammY](https://grammy.dev/) bot framework.
   - Runtimes:
     - [Bun](#bun-bunsh)
 
+## Features of this bot
+
+- Obtain Group ID
+- Delete Twitter/X links within whitelisted group
+- Check if a group is in the whitelisted IDs
+
 ## Usage
 
 Follow these steps to set up and run your bot using this template:
 
 1. **Create a New Repository**
 
-   Start by creating a new repository using this template. You can do this by clicking [here](https://github.com/bot-base/telegram-bot-template/generate).
+   Start by creating a new repository using this template. You can do this by clicking [here](https://github.com/lucid-creations-media/no-twitter-bot/fork).
 
 2. **Environment Variables Setup**
 
@@ -45,7 +49,22 @@ Follow these steps to set up and run your bot using this template:
 
    Open the newly created `.env.bot.dev` and `.env.bot.prod` files and set the `BOT_TOKEN` environment variable.
 
-3. **Launching the Bot**
+3. **Remove references of LCM from your code.**
+
+   Remove references of LCM from the following files:
+
+   ```
+   project-root/
+   ├── src
+   │ ├── bot # Code related to bot
+   │ │ ├── features # Bot features
+   │ │ │ ├──helpCommand.ts
+   │ │ │ └──isLCMGroup.ts
+   │ └── └── index.ts # Bot entry point
+   └── README.md
+   ```
+
+4. **Launching the Bot**
 
    You can run your bot in both development and production modes.
 
