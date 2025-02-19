@@ -32,7 +32,7 @@ feature.hears(
 
         if (!flag) {
           await ctx.reply(
-            `This group is NOT in the whitelisted and is NOT a part of the LCM Telegram groups/communities\\. I am a bot designed to delete any Twitter/X links and reformatting services within groups\\. You can fork me from this link: https://github.com/LucidCreationsMedia/No-Twitter-Bot and deploy me for use in your own groups!`,
+            `This group is NOT in the whitelisted and is NOT a part of the LCM Telegram groups/communities\\. I am a bot designed to delete any Twitter/X links and reformatting services within groups\\. You can fork me from this link: https://github\\.com/lucid\\-creations\\-media/no\\-twitter\\-bot and deploy me for use in your own groups!`,
             {
               parse_mode: "MarkdownV2",
               reply_parameters: { message_id: ctx.msg.message_id }
