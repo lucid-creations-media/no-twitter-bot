@@ -2,7 +2,7 @@ import type { Context } from "#root/bot/context.js";
 import type { Config } from "#root/config.js";
 import type { Logger } from "#root/logger.js";
 import type { BotConfig } from "grammy";
-import { adminFeature } from "#root/bot/features/admin.js";
+// import { adminFeature } from "#root/bot/features/admin.js";
 import { languageFeature } from "#root/bot/features/language.js";
 import { unhandledFeature } from "#root/bot/features/unhandled.js";
 import { welcomeFeature } from "#root/bot/features/welcome.js";
@@ -68,7 +68,7 @@ export function createBot(
 
   // Handlers
   protectedBot.use(welcomeFeature);
-  protectedBot.use(adminFeature);
+  // protectedBot.use(adminFeature);
   if (isMultipleLocales) protectedBot.use(languageFeature);
 
   // Commands
