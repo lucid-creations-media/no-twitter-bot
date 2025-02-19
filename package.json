@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
   "description": "Telegram bot starter template",
   "imports": {
     "#root/*": "./build/src/*"
@@ -21,7 +22,8 @@
     "dev": "tsc-watch --onSuccess \"tsx ./src/main.ts\"",
     "start": "tsc && tsx ./src/main.ts",
     "start:force": "tsx ./src/main.ts",
-    "prepare": "husky || true"
+    "prepare": "husky || true",
+    "pretty": "prettier --write ."
   },
   "dependencies": {
     "@grammyjs/auto-chat-action": "0.1.1",
@@ -43,12 +45,16 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "4.3.0",
+    "@eslint/js": "^9.20.0",
     "@types/node": "^22.13.4",
     "eslint": "^9.20.1",
+    "globals": "^15.15.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
+    "prettier": "^3.5.1",
     "tsc-watch": "^6.2.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
   },
   "lint-staged": {
     "*.ts": "eslint"

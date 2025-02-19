@@ -5,9 +5,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "paths": {
-      "#root/*": [
-        "./src/*"
-      ]
+      "#root/*": ["./src/*"]
     },
     "strict": true,
     "noEmit": true,
@@ -17,7 +15,5 @@
     "skipLibCheck": true,
     "preserveWatchOutput": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }
