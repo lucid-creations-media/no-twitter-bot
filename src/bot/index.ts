@@ -1,75 +1,89 @@
-import type { Context } from '#root/bot/context.js'
-import type { Config } from '#root/config.js'
-import type { Logger } from '#root/logger.js'
-import type { BotConfig } from 'grammy'
-import { adminFeature } from '#root/bot/features/admin.js'
-import { languageFeature } from '#root/bot/features/language.js'
-import { unhandledFeature } from '#root/bot/features/unhandled.js'
-import { welcomeFeature } from '#root/bot/features/welcome.js'
-import { errorHandler } from '#root/bot/handlers/error.js'
-import { i18n, isMultipleLocales } from '#root/bot/i18n.js'
-import { session } from '#root/bot/middlewares/session.js'
-import { updateLogger } from '#root/bot/middlewares/update-logger.js'
-import { autoChatAction } from '@grammyjs/auto-chat-action'
-import { hydrate } from '@grammyjs/hydrate'
-import { hydrateReply, parseMode } from '@grammyjs/parse-mode'
-import { sequentialize } from '@grammyjs/runner'
-import { MemorySessionStorage, Bot as TelegramBot } from 'grammy'
+import type { Context } from "#root/bot/context.js";
+import type { Config } from "#root/config.js";
+import type { Logger } from "#root/logger.js";
+import type { BotConfig } from "grammy";
+import { adminFeature } from "#root/bot/features/admin.js";
+import { languageFeature } from "#root/bot/features/language.js";
+import { unhandledFeature } from "#root/bot/features/unhandled.js";
+import { welcomeFeature } from "#root/bot/features/welcome.js";
+import { errorHandler } from "#root/bot/handlers/error.js";
+import { i18n, isMultipleLocales } from "#root/bot/i18n.js";
+import { session } from "#root/bot/middlewares/session.js";
+import { updateLogger } from "#root/bot/middlewares/update-logger.js";
+import { autoChatAction } from "@grammyjs/auto-chat-action";
+import { hydrate } from "@grammyjs/hydrate";
+import { hydrateReply, parseMode } from "@grammyjs/parse-mode";
+import { sequentialize } from "@grammyjs/runner";
+import { MemorySessionStorage, Bot as TelegramBot } from "grammy";
+import { blacklistDetection } from "./features/blacklistDelete.js";
+import { botInfoCommand } from "./features/botInfoCommand.js";
+import { getGroupIDCommand } from "./features/getGroupIDCommand.js";
+import { helpCommand } from "./features/helpCommand.js";
+import { isLCMGroup } from "./features/isLCMGroup.js";
 
 interface Dependencies {
-  config: Config
-  logger: Logger
+  config: Config;
+  logger: Logger;
 }
 
-function getSessionKey(ctx: Omit<Context, 'session'>) {
-  return ctx.chat?.id.toString()
+function getSessionKey(ctx: Omit<Context, "session">) {
+  return ctx.chat?.id.toString();
 }
 
-export function createBot(token: string, dependencies: Dependencies, botConfig?: BotConfig<Context>) {
-  const {
-    config,
-    logger,
-  } = dependencies
+export function createBot(
+  token: string,
+  dependencies: Dependencies,
+  botConfig?: BotConfig<Context>
+) {
+  const { config, logger } = dependencies;
 
-  const bot = new TelegramBot<Context>(token, botConfig)
+  const bot = new TelegramBot<Context>(token, botConfig);
 
   bot.use(async (ctx, next) => {
-    ctx.config = config
+    ctx.config = config;
     ctx.logger = logger.child({
-      update_id: ctx.update.update_id,
-    })
+      update_id: ctx.update.update_id
+    });
 
-    await next()
-  })
+    await next();
+  });
 
-  const protectedBot = bot.errorBoundary(errorHandler)
+  const protectedBot = bot.errorBoundary(errorHandler);
 
   // Middlewares
-  bot.api.config.use(parseMode('HTML'))
+  bot.api.config.use(parseMode("HTML"));
 
-  if (config.isPollingMode)
-    protectedBot.use(sequentialize(getSessionKey))
-  if (config.isDebug)
-    protectedBot.use(updateLogger())
-  protectedBot.use(autoChatAction(bot.api))
-  protectedBot.use(hydrateReply)
-  protectedBot.use(hydrate())
-  protectedBot.use(session({
-    getSessionKey,
-    storage: new MemorySessionStorage(),
-  }))
-  protectedBot.use(i18n)
+  if (config.isPollingMode) protectedBot.use(sequentialize(getSessionKey));
+  if (config.isDebug) protectedBot.use(updateLogger());
+  protectedBot.use(autoChatAction(bot.api));
+  protectedBot.use(hydrateReply);
+  protectedBot.use(hydrate());
+  protectedBot.use(
+    session({
+      getSessionKey,
+      storage: new MemorySessionStorage()
+    })
+  );
+  protectedBot.use(i18n);
 
   // Handlers
-  protectedBot.use(welcomeFeature)
-  protectedBot.use(adminFeature)
-  if (isMultipleLocales)
-    protectedBot.use(languageFeature)
+  protectedBot.use(welcomeFeature);
+  protectedBot.use(adminFeature);
+  if (isMultipleLocales) protectedBot.use(languageFeature);
+
+  // Commands
+  protectedBot.use(botInfoCommand);
+  protectedBot.use(getGroupIDCommand);
+  protectedBot.use(isLCMGroup);
+  protectedBot.use(helpCommand);
+
+  // Blacklist Feature
+  protectedBot.use(blacklistDetection);
 
   // must be the last handler
-  protectedBot.use(unhandledFeature)
+  protectedBot.use(unhandledFeature);
 
-  return bot
+  return bot;
 }
 
-export type Bot = ReturnType<typeof createBot>
+export type Bot = ReturnType<typeof createBot>;
