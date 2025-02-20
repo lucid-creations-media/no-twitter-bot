@@ -56,11 +56,11 @@ Follow these steps to set up and run your bot using this template:
    ```
    project-root/
    ├── src
-   │ ├── bot # Code related to bot
-   │ │ ├── features # Bot features
-   │ │ │ ├──helpCommand.ts
-   │ │ │ └──isLCMGroup.ts
-   │ └── └── index.ts # Bot entry point
+   │   ├── bot # Code related to bot
+   │   │   ├── features # Bot features
+   │   │   ├── helpCommand.ts
+   │   │   └── isLCMGroup.ts
+   │   └── index.ts # Bot entry point
    └── README.md
    ```
 
