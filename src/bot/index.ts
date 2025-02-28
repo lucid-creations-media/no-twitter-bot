@@ -15,7 +15,8 @@ import { hydrate } from "@grammyjs/hydrate";
 import { hydrateReply, parseMode } from "@grammyjs/parse-mode";
 import { sequentialize } from "@grammyjs/runner";
 import { MemorySessionStorage, Bot as TelegramBot } from "grammy";
-import { blacklistDetection } from "./features/blacklistDelete.js";
+import { twitterBlacklist } from "./features/twitterBlacklist.js";
+import { metaBlacklist } from "./features/metaBlacklist.js";
 import { botInfoCommand } from "./features/botInfoCommand.js";
 import { getGroupIDCommand } from "./features/getGroupIDCommand.js";
 import { helpCommand } from "./features/helpCommand.js";
@@ -78,7 +79,8 @@ export function createBot(
   protectedBot.use(helpCommand);
 
   // Blacklist Feature
-  protectedBot.use(blacklistDetection);
+  protectedBot.use(twitterBlacklist);
+  protectedBot.use(metaBlacklist);
 
   // must be the last handler
   protectedBot.use(unhandledFeature);
