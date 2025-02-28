@@ -6,14 +6,14 @@ const composer = new Composer<Context>();
 
 const feature = composer.chatType(["group", "supergroup"]);
 
-const GROUP_IDS = process.env.GROUP_IDS
-  ? process.env.GROUP_IDS.split(",")
-  : undefined;
-
 feature.hears(
   "/isLCMGroup",
   logHandle("is-LCM-group"),
   async (ctx: Context) => {
+    const GROUP_IDS = process.env.GROUP_IDS
+      ? process.env.GROUP_IDS.split(",")
+      : undefined;
+
     if (ctx.chat && ctx.msg) {
       const groupID = ctx.chat.id;
 
@@ -43,7 +43,7 @@ feature.hears(
 
       if (!GROUP_IDS) {
         await ctx.reply(
-          `There was a problem retrieving the whitelist. Check the env variables and try again\\.`,
+          `There was a problem retrieving the whitelist\\. Check the env variables and try again\\.`,
           {
             parse_mode: "MarkdownV2",
             reply_parameters: { message_id: ctx.msg.message_id }
