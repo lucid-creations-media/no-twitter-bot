@@ -6,14 +6,14 @@ const composer = new Composer<Context>();
 
 const feature = composer.chatType(["group", "supergroup"]);
 
-const GROUP_IDS = process.env.GROUP_IDS
-  ? process.env.GROUP_IDS.split(",")
-  : undefined;
-
 feature.hears(
   "/help",
   logHandle("blacklist-detection"),
   async (ctx: Context) => {
+    const GROUP_IDS = process.env.GROUP_IDS
+      ? process.env.GROUP_IDS.split(",")
+      : undefined;
+
     if (ctx.chat && ctx.msg) {
       if (GROUP_IDS !== undefined) {
         const groupID = ctx.chat.id;
