@@ -25,6 +25,9 @@ Bot starter template based on [grammY](https://grammy.dev/) bot framework.
 
 - Obtain Group ID
 - Delete Twitter/X links within whitelisted group
+- Delete post reformat services for Twitter links within whitelisted group
+- Delete Facebook/Meta links within whitelisted group
+- Delete other Meta services links within whitelisted group
 - Check if a group is in the whitelisted IDs
 
 ## Usage
@@ -384,6 +387,15 @@ bun add -d @types/bun
         Administrator user IDs.
         Use this to specify user IDs that have special privileges, such as executing <code>/setcommands</code>. <br/>
         Defaults to an empty array.
+    </td>
+  </tr>
+  <tr>
+    <td>GROUP_IDS</td>
+    <td>
+        Array of Number
+    </td>
+    <td>
+        The list of group IDs where the blacklist function would successfully invoke the functions.
     </td>
   </tr>
 </tbody>

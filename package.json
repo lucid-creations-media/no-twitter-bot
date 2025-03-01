@@ -1,7 +1,7 @@
 {
   "name": "no-twitter-bot",
   "type": "module",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
   "description": "This grammY powered Telegram bot is designed to delete Twitter/X links and reformat services from whitelisted groups. This one is the main bot for the LCM Telegram groups/communities.",
