@@ -26,10 +26,10 @@ RUN yarn typecheck
 FROM base AS runner
 
 # Files required by npm install
-COPY package*.json ./
+COPY package.json yarn.lock ./
 
 # Install only production app dependencies
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 # Bundle app source
 COPY . .
@@ -38,4 +38,5 @@ USER node
 
 # Start the app
 EXPOSE 80
-CMD ["node", "--import", "tsx", "./src/main.ts"]
+CMD ["yarn", "start"]
+# CMD ["node", "--import", "tsx", "./src/main.ts"]
