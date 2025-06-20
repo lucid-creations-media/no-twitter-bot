@@ -29,7 +29,7 @@ FROM base AS runner
 COPY package*.json ./
 
 # Install only production app dependencies
-RUN yarn install --production
+RUN yarn install --frozen-lockfile
 
 # Bundle app source
 COPY . .
