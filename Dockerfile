@@ -7,12 +7,10 @@ RUN corepack enable
 RUN yarn set version stable
 
 # Create app directory
-WORKDIR /usr/src
+WORKDIR /app
 
-FROM base AS builder
-
-# Files required by npm install
-COPY package*.json ./
+# Files required by yarn install
+COPY package.json yarn.lock ./
 
 # Install app dependencies
 RUN yarn install
@@ -25,18 +23,14 @@ RUN yarn typecheck
 
 FROM base AS runner
 
-# Files required by npm install
-COPY package.json yarn.lock ./
+# Bundle app source
+COPY . .
 
 # Install only production app dependencies
 RUN yarn install --frozen-lockfile
-
-# Bundle app source
-COPY . .
 
 USER node
 
 # Start the app
 EXPOSE 80
 CMD ["yarn", "start"]
-# CMD ["node", "--import", "tsx", "./src/main.ts"]
