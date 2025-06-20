@@ -21,6 +21,7 @@ import { botInfoCommand } from "./features/botInfoCommand.js";
 import { getGroupIDCommand } from "./features/getGroupIDCommand.js";
 import { helpCommand } from "./features/helpCommand.js";
 import { isLCMGroup } from "./features/isLCMGroup.js";
+import { embedCheck } from "./features/embedCheck.js";
 
 interface Dependencies {
   config: Config;
@@ -81,6 +82,7 @@ export function createBot(
   // Blacklist Feature
   protectedBot.use(twitterBlacklist);
   protectedBot.use(metaBlacklist);
+  protectedBot.use(embedCheck);
 
   // must be the last handler
   protectedBot.use(unhandledFeature);
