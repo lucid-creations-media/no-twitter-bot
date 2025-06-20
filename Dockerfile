@@ -11,7 +11,7 @@ RUN yarn set version stable
 
 # Files required by yarn install
 COPY package.json yarn.lock ./
-COPY .yarn/ .yarn/
+COPY .pnp.cjs .pnp.loader.mjs .yarn/ .yarn/
 
 # Install app dependencies
 RUN yarn install --immutable
