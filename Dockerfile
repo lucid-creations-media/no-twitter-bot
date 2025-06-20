@@ -29,7 +29,7 @@ FROM base AS runner
 COPY package*.json ./
 
 # Install only production app dependencies
-#RUN yarn install
+RUN yarn install
 
 # Bundle app source
 COPY . .
