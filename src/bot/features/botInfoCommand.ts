@@ -16,7 +16,7 @@ feature.hears(
   async (ctx: Context) => {
     if (ctx.chat && ctx.msg) {
       await ctx.reply(
-        `I am a bot designed to delete any Twitter/X links and reformatting services within groups\\. By default I only work with whitelisted group IDs\\.\n\nYou can fork me from this link: https://github\\.com/lucid\\-creations\\-media/no\\-twitter\\-bot and deploy me for use in your own groups\\!`,
+        `I am a bot designed to delete any Twitter/X links and reformatting services within groups\\. I now check embedded links\\! By default I only work with whitelisted group IDs\\.\n\nYou can fork me from this link: https://github\\.com/lucid\\-creations\\-media/no\\-twitter\\-bot and deploy me for use in your own groups\\!`,
         {
           parse_mode: "MarkdownV2",
           reply_parameters: { message_id: ctx.msg.message_id }
