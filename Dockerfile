@@ -15,11 +15,12 @@ COPY package.json yarn.lock ./
 # Install app dependencies
 RUN yarn install --immutable
 
+# Type check app
+RUN yarn typecheck
+
 # Bundle app source
 COPY . .
 
-# Type check app
-RUN yarn typecheck
 
 FROM base AS runner
 
