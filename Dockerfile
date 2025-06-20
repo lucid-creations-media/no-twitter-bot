@@ -1,19 +1,21 @@
 FROM node:lts-slim AS base
 
+# Create app directory
+WORKDIR /app
+
 # Enable Corepack
 RUN corepack enable
 
 # Set Yarn to the latest stable version
 RUN yarn set version stable
 
-# Create app directory
-WORKDIR /app
-
 # Files required by yarn install
 COPY package.json yarn.lock ./
+COPY .pnp.cjs .pnp.loader.mjs .yarn/ .yarn/
+v
 
 # Install app dependencies
-RUN yarn install
+RUN yarn install --immutable
 
 # Bundle app source
 COPY . .
@@ -27,7 +29,7 @@ FROM base AS runner
 COPY . .
 
 # Install only production app dependencies
-RUN yarn install --frozen-lockfile
+RUN yarn install --immutable
 
 USER node
 
