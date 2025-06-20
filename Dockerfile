@@ -1,5 +1,11 @@
 FROM node:lts-slim AS base
 
+# Enable Corepack
+RUN corepack enable
+
+# Set Yarn to the latest stable version
+RUN yarn set version stable
+
 # Create app directory
 WORKDIR /usr/src
 
@@ -23,7 +29,7 @@ FROM base AS runner
 COPY package*.json ./
 
 # Install only production app dependencies
-RUN yarn install --production
+#RUN yarn install
 
 # Bundle app source
 COPY . .
