@@ -552,12 +552,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@grammyjs/commands@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@grammyjs/commands@npm:1.0.5"
+"@grammyjs/commands@npm:1.0.8":
+  version: 1.0.8
+  resolution: "@grammyjs/commands@npm:1.0.8"
   peerDependencies:
     grammy: ^1.17.1
-  checksum: 10c0/00753b0b67f525dfaee85ef9bbbe459faa6f894ae8b3d98b927debdfcf58ebc0d4aa0507eb24f46b26458186af7a41ed3ccc0a94b5f2c0aab4cd5658c50a6c85
+  checksum: 10c0/497ae2a2261266b83b1ab4d4736c2a84e069447b366f873d38797fae581be9d34aed72bcf1a5ebbc30273a1a7f7938488869e4c8bb040a867e67d4244ceb2f96
   languageName: node
   linkType: hard
 
@@ -3778,7 +3778,7 @@ __metadata:
     "@antfu/eslint-config": "npm:4.3.0"
     "@eslint/js": "npm:^9.20.0"
     "@grammyjs/auto-chat-action": "npm:0.1.1"
-    "@grammyjs/commands": "npm:1.0.5"
+    "@grammyjs/commands": "npm:1.0.8"
     "@grammyjs/hydrate": "npm:1.4.1"
     "@grammyjs/i18n": "npm:1.1.2"
     "@grammyjs/parse-mode": "npm:1.11.1"
