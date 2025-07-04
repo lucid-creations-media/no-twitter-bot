@@ -599,12 +599,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@grammyjs/parse-mode@npm:1.11.1":
-  version: 1.11.1
-  resolution: "@grammyjs/parse-mode@npm:1.11.1"
+"@grammyjs/parse-mode@npm:2.2.0":
+  version: 2.2.0
+  resolution: "@grammyjs/parse-mode@npm:2.2.0"
   peerDependencies:
-    grammy: ^1.20.1
-  checksum: 10c0/0edc2123f96f87349d3fadf066e6f017a165821f3840044f0640345672ae40d9ffcb35ee39a7c783e117ee9dd4dce9a6a66a8c44eb4336ce6d2aea2b55493910
+    grammy: ^1.36.1
+  checksum: 10c0/1febb2f41e3c49c4a855e6164659d825f945b4cc318cf513f0a07549a0077df95db78c042881021d5ee060dae47eccb9a67ee40649813a56108f8e9b135066f9
   languageName: node
   linkType: hard
 
@@ -3907,7 +3907,7 @@ __metadata:
     "@grammyjs/commands": "npm:1.0.8"
     "@grammyjs/hydrate": "npm:1.4.1"
     "@grammyjs/i18n": "npm:1.1.2"
-    "@grammyjs/parse-mode": "npm:1.11.1"
+    "@grammyjs/parse-mode": "npm:2.2.0"
     "@grammyjs/runner": "npm:2.0.3"
     "@grammyjs/types": "npm:3.20.0"
     "@hono/node-server": "npm:1.14.2"
