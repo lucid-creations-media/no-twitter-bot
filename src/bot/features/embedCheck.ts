@@ -50,7 +50,7 @@ feature.on("message::url", logHandle("embed-check"), async (ctx: Context) => {
               ctx.msg.delete();
               // Replies to the user informing them of the action.
               return await ctx.reply(
-                `@${username} Twitter and X links along with reformatting services for Twitter posts are not allowed here\\. Also Facebook and meta links along with with links to meta\\-owned services are not allowed here\\. Please consider sharing the media directly or from other social media sources or websites\\. No administration action was taken against you other than the message being deleted\\.\n\nIf this was forwarded from a channel consider forwarding without the caption so the media isn't deleted.`,
+                `@${username} Twitter and X links along with reformatting services for Twitter posts are not allowed here\\. Also Facebook and meta links along with with links to meta\\-owned services are not allowed here\\. Please consider sharing the media directly or from other social media sources or websites\\. No administration action was taken against you other than the message being deleted\\.\n\nIf this was forwarded from a channel consider forwarding without the caption so the media isn't deleted\\.`,
                 { parse_mode: "MarkdownV2" }
               );
             }
@@ -61,7 +61,7 @@ feature.on("message::url", logHandle("embed-check"), async (ctx: Context) => {
               ctx.msg.delete();
               // Replies to the user informing them of the action.
               return await ctx.reply(
-                `@${username} Facebook and meta links along with with links to meta\\-owned services are not allowed here\\. Please consider sharing the media directly or from other social media sources or websites\\. No administration action was taken against you other than the message being deleted\\\n\nIf this was forwarded from a channel consider forwarding without the caption so the media isn't deleted..`,
+                `@${username} Facebook and meta links along with with links to meta\\-owned services are not allowed here\\. Please consider sharing the media directly or from other social media sources or websites\\. No administration action was taken against you other than the message being deleted\\\n\nIf this was forwarded from a channel consider forwarding without the caption so the media isn't deleted\\.`,
                 { parse_mode: "MarkdownV2" }
               );
             }
@@ -72,7 +72,7 @@ feature.on("message::url", logHandle("embed-check"), async (ctx: Context) => {
               ctx.msg.delete();
               // Replies to the user informing them of the action.
               return await ctx.reply(
-                `@${username} Twitter and X links along with reformatting services for Twitter posts are not allowed here\\. Please consider sharing the media directly or from other social media sources or websites\\. No administration action was taken against you other than the message being deleted\\.\n\nIf this was forwarded from a channel consider forwarding without the caption so the media isn't deleted.`,
+                `@${username} Twitter and X links along with reformatting services for Twitter posts are not allowed here\\. Please consider sharing the media directly or from other social media sources or websites\\. No administration action was taken against you other than the message being deleted\\.\n\nIf this was forwarded from a channel consider forwarding without the caption so the media isn't deleted\\.`,
                 { parse_mode: "MarkdownV2" }
               );
             }
