@@ -7,7 +7,7 @@ const composer = new Composer<Context>();
 const feature = composer.chatType(["group", "supergroup"]);
 
 feature.hears(
-  /(x.com|twitter.com)/gi,
+  /(x\.com|twitter\.com)/gi,
   logHandle("blacklist-detection-twitter"),
   async (ctx: Context) => {
     const GROUP_IDS = process.env.GROUP_IDS
