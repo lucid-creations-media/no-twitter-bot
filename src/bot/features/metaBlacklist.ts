@@ -7,7 +7,7 @@ const composer = new Composer<Context>();
 const feature = composer.chatType(["group", "supergroup"]);
 
 feature.hears(
-  /(facebook.com|meta.com|instagram.com|threads.net|whatsapp.com)/gi,
+  /(facebook\.com|meta\.com|instagram\.com|threads\.net|whatsapp\.com)/gi,
   logHandle("blacklist-detection-meta"),
   async (ctx: Context) => {
     const GROUP_IDS = process.env.GROUP_IDS

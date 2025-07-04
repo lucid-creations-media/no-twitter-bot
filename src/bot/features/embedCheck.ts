@@ -27,11 +27,11 @@ feature.on(
             if (embeds.length) {
               const metaLinks = embeds.filter(({ url }) =>
                 url.match(
-                  /(facebook.com|meta.com|instagram.com|threads.net|whatsapp.com)/gi
+                  /(facebook\.com|meta\.com|instagram\.com|threads\.net|whatsapp\.com)/gi
                 )
               );
               const twitterLinks = embeds.filter(({ url }) =>
-                url.match(/(x.com|twitter.com)/gi)
+                url.match(/(x\.com|twitter\.com)/gi)
               );
 
               if (metaLinks.length && twitterLinks.length) {
